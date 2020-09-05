@@ -87,6 +87,7 @@ h2{
       color: #000000;
     }
     
+    /*
     .hearts .suit::after{
       content: '\2665';
      
@@ -100,4 +101,6 @@ h2{
   .clubs .suit::after{
       content: '\2663';
     }
+
+    */
   

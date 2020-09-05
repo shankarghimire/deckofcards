@@ -109,6 +109,6 @@ function cardOutputCUI(){
 
 function randomCardOutputGUI(){
     let n = Math.floor((Math.random() * 51) +1);
-    let outputCard = '<div class="icard ' +  deckOfCards[n].suit +'"><div class="top-card suit">' + deckOfCards[n].cardNum    +'<br></div><div class="content-card suit"></div><div class="bottom-card suit">' + deckOfCards[n].cardNum  +'<br></div></div>';
+    let outputCard = '<div class="icard ' +  deckOfCards[n].suit +'"><div class="top-card suit">' + deckOfCards[n].cardNum    +'<br>&' + deckOfCards[n].suit +';</div><div class="content-card suit">&' + deckOfCards[n].suit +';</div><div class="bottom-card suit">' + deckOfCards[n].cardNum  +'<br>&' + deckOfCards[n].suit + ';</div></div>';
     return outputCard;
 }
