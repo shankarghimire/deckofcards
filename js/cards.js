@@ -11,15 +11,28 @@ var aCard;
 //create DOM objects
 const wrapper = document.getElementById('wrapper');
 const output = document.getElementById('output');
-const btnCreateDeckCui = document.getElementById('btn-create-deck-cui');
+const btnCreateDeckCUI = document.getElementById('btn-create-deck-cui');
+const btnCreateDeckGUI = document.getElementById('btn-create-deck-gui');
+const btnRandomCard = document.getElementById('btn-random-card');
+const btnShuffleDeck = document.getElementById('btn-shuffle-deck');
 
-
-//AddEventListener
+//AddEventListener for load and resize events
 window.addEventListener('load',init,false);
 window.addEventListener('resize',init,false);
-btnCreateDeckCui.addEventListener('click',(e)=>{
+
+//AddEventListener for the btnCreateDeckCUI
+btnCreateDeckCUI.addEventListener('click',(e)=>{
     // console.log("Testing btnCreateDeckCui");
     cardOutputCUI();
+},false);
+
+btnCreateDeckGUI.addEventListener('click',(e)=>{},false);
+btnRandomCard.addEventListener('click',(e)=>{
+    output.innerHTML = randomCardOutputGUI();
+},false);
+btnShuffleDeck.addEventListener('click',(e)=>{
+    //function call to shuffle deck
+    shuffleDeck();
 },false);
 
 function init(){
@@ -69,7 +82,18 @@ function createDeckOfCards(){
     console.log(deckOfCards);
     
 }
+
+function shuffleDeck(){
+    let i,j,temp;
+    for(i = (deckOfCards.length -1); i>=0; i--){
+        j = Math.floor(Math.random() * (i+1));
+        temp = deckOfCards[i];
+        deckOfCards[i] = deckOfCards[j];
+        deckOfCards[j] = temp;
+    }
+}
 function cardOutputCUI(){
+    output.innerHTML = "";
     let i;
     let c = 0;
     for(i = 0; i < deckOfCards.length; i++){
@@ -78,8 +102,13 @@ function cardOutputCUI(){
         if(c == 13){
             output.innerHTML += "<br>";
             c = 0;
-        }
-        
-    }
-    
+        } 
+    } 
+    output.innerHTML += "<br>Total Cards: " + deckOfCards.length;
+}
+
+function randomCardOutputGUI(){
+    let n = Math.floor((Math.random() * 51) +1);
+    let outputCard = '<div class="icard ' +  deckOfCards[n].suit +'"><div class="top-card suit">' + deckOfCards[n].cardNum    +'<br></div><div class="content-card suit"></div><div class="bottom-card suit">' + deckOfCards[n].cardNum  +'<br></div></div>';
+    return outputCard;
 }

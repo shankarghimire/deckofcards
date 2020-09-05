@@ -24,9 +24,80 @@ h2{
     /* border: 2px solid #0000ff; */
 }
 
+.grid{
+    
+}
+
 #output{
-    padding-right: 3px;
+    margin-top: 5px;
+    padding: 0;
+    position: relative;
     /* border: 1px solid #ff0000; */
     /* text-overflow: normal; */
     /* overflow: visible; */
 }
+
+.icard{
+    height: 160px;
+    width: 120px;
+    padding: 3px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    background-color: #ffffff;
+    /* position: absolute; */
+    position: relative;
+    left: 100px;
+    display: inline-block;
+    font-family: Loto, Arial, Helvetica, sans-serif,
+  }
+  
+  .top-card{
+    font-size: 30px;
+    line-height: 20px;
+    left: 3px;
+    top: 4px;
+    /* border: 1px solid red; */
+    position: absolute;
+  }
+  .content-card{
+    text-align: center;
+    font-size: 100px;
+    /* border: 1px solid red; */
+    position: relative;
+    top: 10%; 
+  }
+  
+  .bottom-card{
+    position: absolute;
+    /* border: 1px solid red; */
+    font-size: 30px;
+    line-height: 20px;
+    right: 4px;
+    bottom: 5px;
+    transform: rotate(-180deg);
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+     -ms-transform: rotate(-180deg);
+     -o-transform: rotate(-180deg);
+  }
+  .hearts, .diams{
+    color: #ff0000;
+  }
+    .clubs, .spades{
+      color: #000000;
+    }
+    
+    .hearts .suit::after{
+      content: '\2665';
+     
+    }
+  .diams .suit::after{
+      content: '\2666';
+    }
+  .spades .suit::after{
+      content: '\2660';
+    }
+  .clubs .suit::after{
+      content: '\2663';
+    }
+  
